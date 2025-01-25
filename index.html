@@ -2,33 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution a { color: hsl(228, 15%, 46%); }
+
+    /* Estilos do mapa */
+    #map {
+      height: 400px;  /* Certifique-se de dar uma altura ao mapa */
+      width: 100%;    /* Mapa ocupa 100% da largura */
+    }
   </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="styles/main.css">
+  
 </head>
 <body>
 
-  IP Address Tracker
+  <header class="header">
+    <h1 class="header__title">IP Address Tracker</h1>
 
-  Search for any IP address or domain
+    <div class="header__input">
+      <input type="text" id="ip-input" placeholder="Search for any IP address or domain">
+      <button id="submit-btn" class="input__btn">></button>
+    </div>
+  </header>
 
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <main class="main">
+    <section class="main__overlay-info">
+      <div class="info__ip">
+        <h2 class="info__title">IP Address</h2>
+        <p class="info__text" id="ip-address"></p>
+      </div>
+
+      <div class="info__location">
+        <h2 class="info__title">Location</h2>
+        <p class="info__text" id="location"></p>
+      </div>
+
+      <div class="info__timezone">
+        <h2 class="info__title">Timezone</h2>
+        <p class="info__text" id="timezone"></p>
+      </div>
+
+      <div class="info__isp">
+        <h2 class="info__title">ISP</h2>
+        <p class="info__text" id="isp"></p>
+      </div>
+    </section>
+
+    <section class="main__map" id="map"></section>
+  </main>
+
+  <script src="script.js"></script>
+
+  <!-- Script da API do Here Maps -->
+  <script type="text/javascript" src="https://js.api.here.com/v3/3.1/hololine.js"></script>
+
 </body>
 </html>

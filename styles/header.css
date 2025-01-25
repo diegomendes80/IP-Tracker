@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  font-family: "Rubik", serif;
+}
+
+* {
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  width: 100vw;
+  height: 40vh;
+  background-image: url(../images/pattern-bg-desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  row-gap: 1rem;
+}
+header h1 {
+  color: white;
+  margin-top: 2.5rem;
+}
+header .header__input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 40px;
+}
+header .header__input #ip-input {
+  flex-grow: 1;
+  border: none;
+  height: 100%;
+  padding-left: 1rem;
+  border-radius: 10px 0 0 10px;
+  font-weight: 500;
+}
+header .header__input #ip-input::-moz-placeholder {
+  color: hsl(0, 0%, 59%);
+  font-weight: 500;
+}
+header .header__input #ip-input::placeholder {
+  color: hsl(0, 0%, 59%);
+  font-weight: 500;
+}
+header .header__input .input__btn {
+  width: 40px;
+  border-radius: 0 10px 10px 0;
+  height: 108%;
+  background-color: hsl(0, 0%, 17%);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+}
+header .header__input .input__btn:hover {
+  background-color: hsl(0, 0%, 59%);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 45%;
+    background-image: url(../images/pattern-bg-mobile.png);
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+  header .header__input {
+    width: 80%;
+  }
+}/*# sourceMappingURL=header.css.map */

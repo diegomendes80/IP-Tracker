@@ -1,0 +1,87 @@
+@use 'abstract/root';
+@use 'abstract/var';
+
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    // padding-top: 3rem;
+    
+
+    width: 100vw;
+    height: 40vh;
+    background-image: url(../images/pattern-bg-desktop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    row-gap: 1rem;
+
+    h1{
+        color: white;
+        margin-top: 2.5rem
+    }
+
+    .header__input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35%;
+        height: 40px;
+        
+
+        #ip-input{
+            flex-grow: 1;
+            border: none;
+            height: 100%;
+            padding-left: 1rem;
+            border-radius: 10px 0 0 10px;
+
+            font-weight: 500;
+
+        }
+
+        #ip-input::placeholder{
+            color: var.$dark-grey;
+            font-weight: 500;
+        }
+
+        .input__btn{
+            width: 40px;
+            border-radius: 0 10px 10px 0;
+            height: 108%;
+
+            background-color: var.$very-dark-grey;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+
+
+        }
+
+        .input__btn:hover{
+            background-color: var.$dark-grey;
+            cursor: pointer;
+            transition: .2s;
+        }
+    }
+}
+
+
+
+@media (max-width: 768px){
+    header{
+        height: 45%;
+        background-image: url(../images/pattern-bg-mobile.png);
+        h1{
+            font-size: 1.5rem;
+        }
+
+        .header__input{
+            width: 80%;
+        }
+    }
+    
+}
