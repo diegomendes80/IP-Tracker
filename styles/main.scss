@@ -33,12 +33,17 @@
 
         border-radius: 1rem;
 
+
         div{
             flex: 1 1 calc(25% - 20px);
+            overflow: hidden;
+            
+            
             justify-content: left;
             max-width: 10rem;
             
             
+           
 
             .info__title{
                 font-size: 1rem;
@@ -48,9 +53,14 @@
             }
 
             .info__text{
-                font-size: 1.5rem;
+                overflow-wrap: break-word;
+                // font-size: clamp(.8rem, 2vw, 1.5rem);
                 font-weight: 600;
                 color: var.$very-dark-grey;
+
+                font-size: clamp(1rem, 2vw, 1.2rem);
+
+
             }
 
 
@@ -76,8 +86,9 @@
           width: 72%;
           height: auto;
           max-height: 60vh;
-          top: 20%;
+          top: 15%;
 
+          padding: 10px;
           align-items: center;
           justify-content: center;
 
@@ -91,7 +102,7 @@
                 }
 
                 .info__text{
-                    font-size: 1.2rem;
+                    font-size: 1rem;
                 }
           
             }

@@ -1,7 +1,7 @@
-// script.js
-
-document.getElementById('submit-btn').addEventListener('click', function() {
+document.getElementById('submit-btn').addEventListener('click', function () {
+    document.getElementById('map').innerHTML = ''; // Limpa o mapa
     const ipInput = document.getElementById('ip-input').value;
+    
 
     if (ipInput === '') {
         alert('Por favor, insira um IP ou domínio');
@@ -14,7 +14,10 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         .then(data => {
             // Exibe as informações no HTML
             document.getElementById('ip-address').textContent = data.ip || 'Não disponível';
-            document.getElementById('location').textContent = (data.city ? data.city + ', ' : '') + (data.region ? data.region + ', ' : '') + (data.country || 'Não disponível');
+            document.getElementById('location').textContent = 
+                (data.city ? data.city + ', ' : '') + 
+                (data.region ? data.region + ', ' : '') + 
+                (data.country || 'Não disponível');
             document.getElementById('timezone').textContent = data.timezone || 'Não disponível';
             document.getElementById('isp').textContent = data.org || 'Não disponível';
 
@@ -33,19 +36,37 @@ document.getElementById('submit-btn').addEventListener('click', function() {
 
 // Função para inicializar o mapa com Here Maps
 function initMap(position) {
-    // Sua chave da API Here
+    // Plataforma do Here Maps
     const platform = new H.service.Platform({
-        'apikey': 'hrn:here:authorization::org873322248:project/iptracker'  
+        apikey: 'g9h794YRAE-cw3F4M5yML_5I0laAJBxV4OOIMXbnZq4' // Sua API Key válida
     });
 
-    // Criando o mapa
-    const map = platform.createMap({
-        'container': 'map',  // ID do elemento do mapa
-        'center': { lat: position.lat, lng: position.lng },  // Coordenadas obtidas
-        'zoom': 14  // Nível de zoom
-    });
+    // Camada de tiles para o mapa
+    const defaultLayers = platform.createDefaultLayers();
+
+    // Instância do mapa
+    const map = new H.Map(
+        document.getElementById('map'),  // Elemento onde o mapa será renderizado
+        defaultLayers.vector.normal.map, // Tipo de mapa
+        {
+            center: position, // Centralizar no local desejado
+            zoom: 14,        // Nível de zoom inicial
+            pixelRatio: window.devicePixelRatio || 1
+        }
+    );
+
+    // Comportamento de interação no mapa
+    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    // UI padrão do mapa
+    const ui = H.ui.UI.createDefault(map, defaultLayers);
 
     // Adicionando marcador no mapa
-    const marker = new H.map.Marker({ lat: position.lat, lng: position.lng });
+    const marker = new H.map.Marker(position);
     map.addObject(marker);
 }
+
+
+document.querySelectorAll('.info__text').forEach(element => {
+    element.style.setProperty('--char-count', element.textContent.length);
+});

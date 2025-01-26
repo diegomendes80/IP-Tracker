@@ -35,6 +35,7 @@ body {
 }
 .main .main__overlay-info div {
   flex: 1 1 calc(25% - 20px);
+  overflow: hidden;
   justify-content: left;
   max-width: 10rem;
 }
@@ -45,9 +46,10 @@ body {
   line-height: 0.5rem;
 }
 .main .main__overlay-info div .info__text {
-  font-size: 1.5rem;
+  overflow-wrap: break-word;
   font-weight: 600;
   color: hsl(0, 0%, 17%);
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .main__map {
@@ -61,7 +63,8 @@ body {
     width: 72%;
     height: auto;
     max-height: 60vh;
-    top: 20%;
+    top: 15%;
+    padding: 10px;
     align-items: center;
     justify-content: center;
   }
@@ -73,6 +76,6 @@ body {
     font-size: 1rem;
   }
   .main .main__overlay-info div .info__text {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=main.css.map */
